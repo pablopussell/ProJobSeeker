@@ -22,7 +22,7 @@
 
 				<div class="jobs">
 					<h2>
-						<a href="category.html">Programming</a> Jobs
+						<a href="category.html">${job.getCategory()}</a> Jobs
 						<span>Latest post about 20 hours ago</span>
 					</h2>
 					<ul>
@@ -32,10 +32,10 @@
 								<span class="new">New</span>
 								</#if>
 						  		<a href="onejob.html">
-								<span class="city">$job.getLocation()}</span>
-								<span class="title">$job.getTitle()}</span> in
-								<span class="company">$job.getCompany()}</span>
-								<span class="date">$job.getDate()}</span>
+								<span class="city">${job.getLocation()}</span>
+								<span class="title">${job.getTitle()}</span> in
+								<span class="company">${job.getCompany()}</span>
+								<span class="date">${job.getDate()}</span>
 						  </a>
 						</li>
 						<#else>

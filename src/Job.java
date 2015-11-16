@@ -7,7 +7,7 @@ public class Job {
 	private static final int DAYS_TO_BE_NEW = 15;
 	
 	public boolean isNew() {
-		date = 
+		return false; 
 	}
 	
 	public Job() {
