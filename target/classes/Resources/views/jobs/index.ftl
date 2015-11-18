@@ -7,18 +7,17 @@
 		<title>Job Listing - Pro Job Seeker</title>		
 	</head>
 	<body>
-		<div id="page">
-			<div id="header" >
-				<h1><a href="index.html">Pro Job Seeker</a></h1>
-				<p>Industry leaders <strong>since 2006</strong>. The best companies use our system to find the <strong>best and brightest<strong> professionals.</p>
-			</div>
-			<div id="content">
+		
+		<#include "header.ftl">
+		
+		<div id="content">
 			
-				<div class="add-job">
-					<a href="addjob.html">
-					  Post a Job, 90 days for only 400&euro;
-					</a>
-				</div>
+			<div class="add-job">
+			<a href="/jobs/create">
+				Post a Job, 90 days for only 400&euro;
+			</a>
+		</div>
+			
 
 				<#list categories as category>
 				<div class="jobs">

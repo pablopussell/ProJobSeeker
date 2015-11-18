@@ -1,4 +1,4 @@
-import static spark.Spark.get;
+import static spark.Spark.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,6 +46,25 @@ public class JobsController {
             // The hello.ftl file is located in directory:
             // src/test/resources/spark/template/freemarker
             return new ModelAndView(attributes, "views/jobs/index.ftl");
-        }, freeMarkerEngine);	}
+        }, freeMarkerEngine);
+		
+		get("/jobs/create", (req, res) -> {
+			return new ModelAndView (null, "views/jobs/create.ftl");
+		}, freeMarkerEngine);
+		
+		post("/jobs/create", (req, res) -> {
+			HashMap<String, Object> jobCreate=new HashMap<String, Object>();
+			String title = req.queryParams("title");
+			String category = req.queryParams("category");
+			String place = req.queryParams("place");
+			String description = req.queryParams("description");
+			String company = req.queryParams("company");
+			System.out.println("all good in the hood!");
+
+			res.redirect("/jobs/create");
+			return new ModelAndView (jobCreate, "views/jobs/create.ftl");
+		}, freeMarkerEngine);
+		
+	}
 
 }

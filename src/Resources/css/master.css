@@ -53,6 +53,7 @@ body {
 	font-family: arial,sans-serif;
 	background-color:#EDF3FE;
 	color: #000;
+	margin: auto auto;
 }
 
 a, a:visited {
@@ -68,6 +69,7 @@ a, a:visited {
 	height:80px;	
 	background-color: #EDF3FE;
 	margin-top: 30px;
+	width: 928px;
 }
 
 #header h1 > a, #header h1 > a:visited {
