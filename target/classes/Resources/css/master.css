@@ -155,6 +155,8 @@ a, a:visited {
 	margin-top:15px;
 	margin-bottom:15px;
 	float:left;
+	background-color:#FFFFFF;
+	padding: 15px 15px 50px 15px;
 }
 
 .jobs h2 {

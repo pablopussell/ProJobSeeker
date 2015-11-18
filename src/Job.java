@@ -1,14 +1,11 @@
+import java.text.SimpleDateFormat;
+
 import org.joda.time.*;
 
 
 
 public class Job {
 	private static int _lastID=0;
-	private static final int DAYS_TO_BE_NEW = 15;
-	
-	public boolean isNew() {
-		return false; 
-	}
 	
 	public Job() {
 		_lastID++;
@@ -24,9 +21,37 @@ public class Job {
 	private DateTime date;
 	private String categoryName;
 	
-	public DateTime getHumanDate() {
-		
-		return date;
+	private static final int DAYS_TO_BE_NEW = 15;
+
+	public boolean isNew() {
+		DateTime now=new DateTime();
+		Days daysBetweenDateAndNow= Days.daysBetween(date, now);
+		int days=daysBetweenDateAndNow.getDays();
+		return days<=DAYS_TO_BE_NEW;
+	}
+	
+	public String getTimeFromNow() {
+		DateTime now=new DateTime();
+		Days daysBetweenDateAndNow= Days.daysBetween(date, now);
+		int days=daysBetweenDateAndNow.getDays();
+		if (days==0) return "Today";
+		int months=days/30;
+		if (months==0) {
+			if (days==1) return "about 1 day ago";
+			return "about "+days+" days ago";
+		}
+		if (months==1) return "about 1 month ago";
+		return "about "+months+" months ago";
+	}
+	
+	private String firstLetterToUpperCase(String str) {
+		return str.substring(0,1).toUpperCase()+str.substring(1);
+	}
+	
+	public String getShortDate() {
+		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("MMM dd");
+		String dateAsString=simpleDateFormat.format(this.date.toDate());
+		return firstLetterToUpperCase(dateAsString);
 	}
 	
 	public void setDate(DateTime date) {
@@ -38,16 +63,12 @@ public class Job {
 		return id;
 	}
 	
-	private String getTitle() {
-		return title;
-	}
-	
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
-	private DateTime getDate() {
-		return date;
+	public String getTitle() {
+		return title;
 	}
 	
 	public String getCompany() {

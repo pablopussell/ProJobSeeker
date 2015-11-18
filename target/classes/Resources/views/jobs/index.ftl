@@ -20,79 +20,31 @@
 					</a>
 				</div>
 
+				<#list categories as category>
 				<div class="jobs">
 					<h2>
-						<a href="category.html">${job.getCategory()}</a> Jobs
+						<a href="category.html">${category}</a> Jobs
 						<span>Latest post about 20 hours ago</span>
 					</h2>
 					<ul>
 						<#list jobs as job>
-    						<li>
+							<#if job.getCategoryName() == category>
+								<li>
 								<#if job.isNew()>
-								<span class="new">New</span>
+									<span class="new">New</span>
 								</#if>
-						  		<a href="onejob.html">
-								<span class="city">${job.getLocation()}</span>
-								<span class="title">${job.getTitle()}</span> in
-								<span class="company">${job.getCompany()}</span>
-								<span class="date">${job.getDate()}</span>
-						  </a>
-						</li>
-						<#else>
-  	  						<li>No Jobs</li>
+								  <a href="onejob.html">
+									<span class="city">${job.getLocation()}</span>
+									<span class="title">${job.getTitle()}</span> in
+									<span class="company">${job.getCompany()}</span>
+									<span class="date">${job.getShortDate()}</span>
+								  </a>
+								</li>
+							</#if>
 						</#list>
 					</ul>
 				</div><!--end div class="jobs" -->
-
-				<div class="jobs">
-					<h2>
-						<a href="category.html">Design</a> Jobs
-						<span>Latest post about 2 days ago</span>
-					</h2>
-					<ul>
-						<li>
-							<span class="new">New</span>
-   						    <a href="onejob.html">
-							<span class="city">San Francisco</span>
-							<span class="title">Freelance Designer</span> in
-							<span class="company">Funk S.A.</span>
-							<span class="date">Nov 4</span>
-						  </a>
-						</li>
-						<li>
-							<span class="new">New</span>
-						  <a href="onejob.html">
-							<span class="city">Moscow</span>
-							<span class="title">UI Designer</span> in
-							<span class="company">Soyuz Films</span>
-							<span class="date">Nov 3</span>
-						  </a>
-						</li>
-						<li>
-							<span class="new">New</span>
-						  <a href="onejob.html">
-								<span class="city">Barcelona</span>
-								<span class="title">CSS Ninja</span> in
-								<span class="company">lukiluk.com</span>
-								<span class="date">Nov 1</span>
-							 </a>
-						</li>
-						<li>
-						  <a href="onejob.html">
-							<span class="city">London</span>
-							<span class="title">UX Designer</span> in
-							<span class="company">Experts &amp; Co</span>
-							<span class="date">Oct 14</span>
-						  </a>
-						</li>
-						<li>
-						  <a href="onejob.html">
-							<span class="city">NY City</span>
-							<span class="title">UX Expert</span> in
-							<span class="company">bulltop.com</span>
-							<span class="date">Oct 10</span>
-						  </a>
-						</li>
+				</#list>
 					</ul>
 				</div><!--end div class="jobs" -->
 
