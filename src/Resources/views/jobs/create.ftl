@@ -1,17 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />	
-		<link rel="stylesheet" href="../../css/master.css" type="text/css" />
-		<title>Job Listing - Pro Job Seeker</title>		
-	</head>
-	<body>
-		<div id="page">
-			
-			<#include "header.ftl">
-			
-			<div id="content">
+<#import "layout.ftl" as layout />
+
+<@layout.master title="Job Listing">
 				<form id="add-job-form" action="/jobs/create" method="POST">
 					<h2>Create a job listing</h2>
 					<fieldset>
@@ -55,13 +44,4 @@
 						<input type="submit" value="Post an ad for 90 days" name="commit" class="button"> or <a href="index.html">Return to listing</a>
 					</fieldset>
 				</form>
-				<div style="clear:both" ></div>
-			</div> <!--end div id="content" -->
-			
-			<div id="footer">
-				<p>&copy; 2011 Job Listing Company International</p>
-			</div>
-			
-		</div>
-	</body>
-</html>
+</@layout.master>
